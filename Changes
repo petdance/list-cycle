@@ -1,6 +1,6 @@
 Revision history for List::Cycle
 
-1.00
+1.00    Fri Apr 16 21:53:11 CDT 2010
 ------------------------------------
 [ENHANCEMENTS]
 No longer loads UNIVERSAL.  Loading UNIVERSAL has been deprecated,
