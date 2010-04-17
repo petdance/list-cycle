@@ -17,4 +17,4 @@ END_DUMP
 # we ought to do this, since it's dumped by unordered hash
 $dump = (join "\n", sort split /\n/, $dump) . "\n";
 
-is($cycle->dump, $dump, "dumped properly");
+is($cycle->dump, $dump, 'dumped properly');
