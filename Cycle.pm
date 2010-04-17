@@ -24,11 +24,21 @@ for alternating bands of color on a report.
 
     use List::Cycle;
 
-    my $color = List::Cycle->new( {values => ['#000000', '#FAFAFA', '#BADDAD']} );
-    print $color->next; # #000000
-    print $color->next; # #FAFAFA
-    print $color->next; # #BADDAD
-    print $color->next; # #000000
+    my $colors = List::Cycle->new( {values => ['#000000', '#FAFAFA', '#BADDAD']} );
+    print $colors->next; # #000000
+    print $colors->next; # #FAFAFA
+    print $colors->next; # #BADDAD
+    print $colors->next; # #000000
+    print $colors->next; # #FAFAFA
+    ... etc ...
+
+You'd call it at the top of a loop:
+
+    while ( ... ) {
+        my $color = $colors->next;
+        print qq{<tr bgcolor="$color">;
+        ...
+    }
 
 Note that a List::Cycle object is not a standard Perl blessed hash.
 It's an inside-out object, as suggested in I<Perl Best Practices>.
