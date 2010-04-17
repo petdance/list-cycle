@@ -11,4 +11,3 @@ t/pod-coverage.t
 t/pod.t
 t/reset.t
 t/vals.t
-META.yml                                 Module meta-data (added by MakeMaker)
