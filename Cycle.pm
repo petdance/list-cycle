@@ -3,7 +3,6 @@ package List::Cycle;
 use warnings;
 use strict;
 use Carp;
-use UNIVERSAL qw( isa );
 
 =head1 NAME
 
@@ -11,13 +10,17 @@ List::Cycle - Objects for cycling through a list of values
 
 =head1 VERSION
 
-Version 0.04
+Version 1.00
 
 =cut
 
-our $VERSION = '0.04';
+our $VERSION = '1.00';
 
 =head1 SYNOPSIS
+
+List::Cycle gives you an iterator object for cycling through a series
+of values.  The canonical use is for cycling through a list of colors
+for alternating bands of color on a report.
 
     use List::Cycle;
 
@@ -145,7 +148,7 @@ sub dump {
 
     while ( my($key,$value) = each %storage ) {
         my $realval = $value->{$self};
-        $realval = join( ",", @$realval ) if isa( $realval, "ARRAY" );
+        $realval = join( ",", @$realval ) if UNIVERSAL::isa( $realval, "ARRAY" );
         $str .= "$key => $realval\n";
     }
     return $str;
@@ -214,7 +217,7 @@ marvelous I<Perl Best Practices>.  L<http://www.oreilly.com/catalog/perlbp/>
 One of the chapters mentions a mythical List::Cycle module, so I made
 it real.
 
-Thanks also to Ricardo SIGNES for patches.
+Thanks also to Ricardo SIGNES and Todd Rinaldo for patches.
 
 =head1 COPYRIGHT & LICENSE
 
