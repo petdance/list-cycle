@@ -1,5 +1,14 @@
 Revision history for List::Cycle
 
+1.02
+------------------------------------
+No new features.
+
+[FIXES]
+No longer fails under hash randomization under Perl 5.17+.  Thanks,
+Ron Savage.
+
+
 1.00    Fri Apr 16 21:53:11 CDT 2010
 ------------------------------------
 [ENHANCEMENTS]

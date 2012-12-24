@@ -1,10 +1,11 @@
-#!perl -Tw
+#!perl -T
 
-use Test::More tests => 12;
+use warnings;
+use strict;
 
-BEGIN {
-    use_ok( 'List::Cycle' );
-}
+use Test::More tests => 11;
+
+use List::Cycle;
 
 my $cycle = List::Cycle->new( {vals=> [2112, 5150, 90125]} );
 isa_ok( $cycle, 'List::Cycle' );

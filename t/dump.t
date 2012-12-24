@@ -1,20 +1,29 @@
 #!perl -Tw
 
-use Test::More tests => 3;
+use warnings;
+use strict;
 
-BEGIN {
-    use_ok( 'List::Cycle' );
-}
+use Test::More tests => 2;
+
+use List::Cycle;
 
 my $cycle = List::Cycle->new( {vals=> [2112, 5150, 90125]} );
 isa_ok( $cycle, 'List::Cycle' );
 
-my $dump = <<END_DUMP;
+my $expected = <<'END_DUMP';
 pointer => 0
 values => 2112,5150,90125
 END_DUMP
 
-# we ought to do this, since it's dumped by unordered hash
-$dump = (join "\n", sort split /\n/, $dump) . "\n";
+my @actual = sort split /\n/, $cycle->dump;
 
-is($cycle->dump, $dump, 'dumped properly');
+# Now that we're sure $actual[1] contains 'values => ...',
+# we can sort the values themselves.
+
+my @field  = split(/\s*=>\s*/, $actual[1]);
+$actual[1] = "$field[0] => " . join(',', sort split(/\s*,\s*/, $field[1]) );
+my $actual = join("\n", @actual) . "\n";
+
+is($expected, $actual, 'dumped properly');
+
+done_testing();

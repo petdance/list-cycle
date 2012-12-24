@@ -1,9 +1,13 @@
 #!perl -T
 
+use warnings;
+use strict;
 use Test::More tests => 1;
 
-BEGIN {
-	use_ok( 'List::Cycle' );
-}
+use List::Cycle;
+
+pass( 'All modules loaded' );
 
 diag( "Testing List::Cycle $List::Cycle::VERSION, Perl $], $^X" );
+
+done_testing();

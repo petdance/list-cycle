@@ -10,11 +10,11 @@ List::Cycle - Objects for cycling through a list of values
 
 =head1 VERSION
 
-Version 1.00
+Version 1.02
 
 =cut
 
-our $VERSION = '1.00';
+our $VERSION = '1.02';
 
 =head1 SYNOPSIS
 
@@ -42,7 +42,7 @@ You'd call it at the top of a loop:
 
 Note that a List::Cycle object is not a standard Perl blessed hash.
 It's an inside-out object, as suggested in I<Perl Best Practices>.
-In the five years since I<PBP> has come out, inside-out objects have
+In the seven years since I<PBP> has come out, inside-out objects have
 been almost universally ignored, but I keep List::Cycle as an example.
 If you don't care about the internals of the object, then List::Cycle
 is a fine module for you to use.
@@ -69,7 +69,7 @@ sub new {
     my $self = \do { my $scalar };
     bless $self, $class;
 
-    $self->_init( %$args );
+    $self->_init( %{$args} );
 
     return $self;
 }
@@ -83,7 +83,7 @@ sub _init {
         my $key = shift @args;
         my $value = shift @args;
 
-        if ( $key =~ /^val(ue)?s$/ ) {
+        if ( $key =~ /^val(?:ue)?s$/ ) {
             $self->set_values($value);
         }
         else {
@@ -105,6 +105,8 @@ sub set_values {
 
     $values_of{ $self } = $values;
     $self->reset;
+
+    return;
 }
 
 sub DESTROY {
@@ -167,11 +169,11 @@ Returns a handy string representation of internals.
 
 sub dump {
     my $self = shift;
-    my $str = "";
+    my $str  = '';
 
     while ( my($key,$value) = each %storage ) {
         my $realval = $value->{$self};
-        $realval = join( ",", @$realval ) if UNIVERSAL::isa( $realval, "ARRAY" );
+        $realval = join( ',', @{$realval} ) if UNIVERSAL::isa( $realval, 'ARRAY' );
         $str .= "$key => $realval\n";
     }
     return $str;
@@ -248,18 +250,11 @@ Thanks also to Ricardo SIGNES and Todd Rinaldo for patches.
 
 =head1 COPYRIGHT & LICENSE
 
-Copyright 2005-2010 Andy Lester.
+Copyright 2005-2012 Andy Lester.
 
-This program is free software; you can redistribute it and/or modify it
-under the terms of either:
+This program is free software; you can redistribute it and/or modify
+it under the terms of the Artistic License v2.0.
 
-=over 4
-
-=item * the GNU General Public License as published by the Free Software
-Foundation; either version 1, or (at your option) any later version, or
-
-=item * the Artistic License version 2.0.
-
-=back
+=cut
 
 1; # End of List::Cycle

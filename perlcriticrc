@@ -1,0 +1,21 @@
+verbose = %f:%l:%c %m (%p)\n
+
+[-CodeLayout::RequireTidyCode]
+[-CodeLayout::ProhibitParensWithBuiltins]
+
+[-Documentation::RequirePodAtEnd]
+[-Documentation::RequirePodSections]
+
+[-Miscellanea::RequireRcsKeywords]
+
+[-Modules::RequireVersionVar]
+
+[-RegularExpressions::RequireDotMatchAnything]
+[-RegularExpressions::RequireExtendedFormatting]
+[-RegularExpressions::RequireLineBoundaryMatching]
+
+[-ValuesAndExpressions::ProhibitMagicNumbers]
+[-ValuesAndExpressions::RequireNumberSeparators]
+
+[-Variables::ProhibitUselessInitialization]
+# This is shut off because of a bug: https://rt.cpan.org/Ticket/Display.html?id=81397
