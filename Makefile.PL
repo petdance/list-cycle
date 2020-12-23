@@ -13,7 +13,7 @@ my %parms = (
     ABSTRACT_FROM       => 'Cycle.pm',
     PL_FILES            => {},
     PREREQ_PM => {
-        'Test::More' => 0,
+        'Test::More' => '0.98', # For subtest()
         'Carp'       => 0,
     },
     dist                => { COMPRESS => 'gzip -9f', SUFFIX => 'gz', },
