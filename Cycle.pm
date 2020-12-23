@@ -209,35 +209,20 @@ You can also look for information at:
 
 =over 4
 
-=item * AnnoCPAN: Annotated CPAN documentation
+=item * Project home page and source code repository
 
-L<http://annocpan.org/dist/List-Cycle>
+L<https://github.com/petdance/list-cycle>
 
-=item * CPAN Ratings
+=item * Issue tracker
 
-L<http://cpanratings.perl.org/d/List-Cycle>
-
-=item * RT: CPAN's request tracker
-
-L<http://rt.cpan.org/NoAuth/Bugs.html?Dist=List-Cycle>
-
-=item * Search CPAN
-
-L<http://search.cpan.org/dist/List-Cycle>
-
-=item * Source code repository
-
-L<http://github.com/petdance/list-cycle>
+L<https://github.com/petdance/list-cycle/issues>
 
 =back
 
 =head1 BUGS
 
-Please report any bugs or feature requests to
-C<bug-list-cycle @ rt.cpan.org>, or through the web interface at
-L<http://rt.cpan.org/NoAuth/ReportBug.html?Queue=List-Cycle>.
-I will be notified, and then you'll automatically be notified of progress on
-your bug as I make changes.
+Please report any bugs or feature requests at
+L<https://github.com/petdance/list-cycle/issues>.
 
 =head1 ACKNOWLEDGEMENTS
 
